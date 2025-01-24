@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="./Online SAPI4 TTS Generator_files/tts.js.download"></script><script async="" src="./Online SAPI4 TTS Generator_files/js"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-112055708-1');
+
+</script><script async="" src="./Online SAPI4 TTS Generator_files/contribee_embed_widget.js.download"></script><script>var lastText = null;
+
+function toggleButton(btn, enabled)
+{
+	btn.disabled = !enabled;
+	if (enabled)
+		btn.classList.remove("disabled");
+	else
+		btn.classList.add("disabled");
+}
+
+async function sayTTS()
+{
+	let submitBtn = document.getElementById("submit");
+	toggleButton(submitBtn, false); {
+		let voice = document.getElementById("voice").value;
+		let text = document.getElementById("text").value;
+		let pitch = document.getElementById("pitch").value;
+		let speed = document.getElementById("speed").value;
+		
+		if (lastText === null || (
+			lastText.voice !== voice ||
+			lastText.text !== text ||
+			lastText.pitch !== pitch ||
+			lastText.speed !== speed)) {
+			await SAPI4.SayTTS(voice, text, pitch, speed);
+			lastText = { voice: voice, text: text, pitch: pitch, speed: speed };
+		} else {
+			await new Promise(x => setTimeout(x, 1000)); // Fake processing :)
+			let audio = document.getElementById("audio");
+			audio.pause();
+			audio.currentTime = 0;
+			audio.play();
+		}
+	} toggleButton(submitBtn, true);
+}
+
+async function getVoiceLimits()
+{
+	let submitBtn = document.getElementById("submit");
+	toggleButton(submitBtn, false); {
+		let voice = document.getElementById("voice");
+		let limits;
+		
+		if (voice.value == "Bonzi") {
+			voice.value = "Adult Male #2, American English (TruVoice)";
+			limits = { minPitch: 50, maxPitch: 400, minSpeed: 50, maxSpeed: 250, defPitch: 140, defSpeed: 157 };
+		} else
+			limits = await SAPI4.VoiceLimitations(voice.value);
+			
+		let pitch = document.getElementById("pitch");
+		let speed = document.getElementById("speed");
+		
+		pitch.setAttribute("min", limits.minPitch);
+		pitch.setAttribute("max", limits.maxPitch);
+		pitch.value = limits.defPitch;
+		
+		speed.setAttribute("min", limits.minSpeed);
+		speed.setAttribute("max", limits.maxSpeed);
+		speed.value = limits.defSpeed;
+	} toggleButton(submitBtn, true);
+}
+
+function forceVoiceLimits()
+{
+	let pitch = document.getElementById("pitch");
+	let speed = document.getElementById("speed");
+	
+	pitch.value = Math.max(parseInt(pitch.getAttribute("min")), parseInt(pitch.value));
+	pitch.value = Math.min(parseInt(pitch.getAttribute("max")), parseInt(pitch.value));
+	speed.value = Math.max(parseInt(speed.getAttribute("min")), parseInt(speed.value));
+	speed.value = Math.min(parseInt(speed.getAttribute("max")), parseInt(speed.value));
+}
+
+async function contentLoaded()
+{
+	await getVoiceLimits();
+}
+
+document.addEventListener("DOMContentLoaded", contentLoaded, false);
+</script>
+		<link rel="stylesheet" href="./Online SAPI4 TTS Generator_files/style.css">
+		<title>Online SAPI4 TTS Generator</title>
+		
+		<meta name="description" content="Online Microsoft SAM, SAPI4, Bonzi Buddy Text to speech generator">
+		<meta name="keywords" content="Microsoft Sam,BonziBUDDY,bonzi buddy,sapi4,speakonia,bonzi buddy text to speech online,online microsoft sam,voice generator,voice,text to speech">
+		<link rel="shortcut icon" type="image/ico" href="https://www.tetyys.com/SAPI4/favicon.ico">
+	</head>
+	<body>
+		<div class="content">
+			<div class="description">
+				<h3>About</h3><p>SAPI4 TTS Generator is an online interface for part of Microsoft Speech API 4.0 which was released in 1998.</p><h3>Usage</h3>
+				<ol>
+					<li>Select your voice. Note that BonziBUDDY voice is actually an "Adult Male #2" with a specific pitch and speed.</li><li>Select your pitch and speed. All voices have lower and upper pitch and speed limits.</li><li>Enter your text and press "Say it". Wait for generated audio appear in audio player. It should be done nearly instantly, as the interface tries to generate audio at x16777215 real-time.</li><li>To save generated audio, right click on audio player and press "Save audio as..."</li>
+				</ol>
+				<h3>Privacy Policy</h3><p>This section is used to inform website visitors regarding policies with the collection, use, and disclosure of Personal Information if anyone decided to use this service.</p><p>We want to inform you that whenever you use this service, we collect information that your browser sends to us. This information includes information such as your computer’s Internet Protocol (“IP”) address, browser user-agent and the time and date of your visit. This information is collected by major web servers by default.</p><p>We use Google Analytics to understand how the site is being used in order to improve your user experience. User data is all anonymous. Find out more about Google Analytics' position on privacy at https://support.google.com/analytics/topic/2919631</p>
+			</div>
+			<div class="generator">
+				<h1>Online SAPI4 TTS Generator</h1>
+				<div class="audio">
+					<audio id="audio" controls="">
+						<source id="source" type="audio/wav">
+					</audio>
+				</div>
+				<div class="options">
+					<div class="voice">
+						<label for="voice">Select voice:</label>
+						<select id="voice" onchange="getVoiceLimits()">
+							<option value="Adult Female #1, American English (TruVoice)">Adult Female #1, American English (TruVoice)</option>
+							<option value="Adult Female #2, American English (TruVoice)">Adult Female #2, American English (TruVoice)</option>
+							<option value="Adult Male #1, American English (TruVoice)">Adult Male #1, American English (TruVoice)</option>
+							<option value="Adult Male #2, American English (TruVoice)">Adult Male #2, American English (TruVoice)</option>
+							<option value="Adult Male #3, American English (TruVoice)">Adult Male #3, American English (TruVoice)</option>
+							<option value="Adult Male #4, American English (TruVoice)">Adult Male #4, American English (TruVoice)</option>
+							<option value="Adult Male #5, American English (TruVoice)">Adult Male #5, American English (TruVoice)</option>
+							<option value="Adult Male #6, American English (TruVoice)">Adult Male #6, American English (TruVoice)</option>
+							<option value="Adult Male #7, American English (TruVoice)">Adult Male #7, American English (TruVoice)</option>
+							<option value="Adult Male #8, American English (TruVoice)">Adult Male #8, American English (TruVoice)</option>
+							<option value="Female Whisper">Female Whisper</option>
+							<option value="Male Whisper">Male Whisper</option>
+							<option value="Mary">Mary</option>
+							<option value="Mary (for Telephone)">Mary (for Telephone)</option>
+							<option value="Mary in Hall">Mary in Hall</option>
+							<option value="Mary in Space">Mary in Space</option>
+							<option value="Mary in Stadium">Mary in Stadium</option>
+							<option value="Mike">Mike</option>
+							<option value="Mike (for Telephone)">Mike (for Telephone)</option>
+							<option value="Mike in Hall">Mike in Hall</option>
+							<option value="Mike in Space">Mike in Space</option>
+							<option value="Mike in Stadium">Mike in Stadium</option>
+							<option value="RoboSoft Five">RoboSoft Five</option>
+							<option value="RoboSoft Four">RoboSoft Four</option>
+							<option value="RoboSoft One">RoboSoft One</option>
+							<option value="RoboSoft Six">RoboSoft Six</option>
+							<option value="RoboSoft Three">RoboSoft Three</option>
+							<option value="RoboSoft Two">RoboSoft Two</option>
+							<option value="Sam" selected="selected">Sam</option><option value="Bonzi">BonziBUDDY</option>
+						</select>
+					</div>
+					<div class="pitch">
+						<label for="pitch">Pitch:</label>
+						<input id="pitch" type="number" onblur="forceVoiceLimits()" min="50" max="200">
+					</div>
+					<div class="speed">
+						<label for="speed">Speed:</label>
+						<input id="speed" type="number" onblur="forceVoiceLimits()" min="30" max="450">
+					</div>
+				</div>
+				<div class="text">
+					<textarea id="text" rows="10" cols="80" maxlength="4095">You have selected Microsoft Sam as the computer's default voice.</textarea>
+				</div>
+				<div class="submit">
+					<button id="submit" type="button" onclick="sayTTS()" class="">Say it</button>
+				</div>
+			</div>
+		</div>
+	
+</body></html>
