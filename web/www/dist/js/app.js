@@ -707,7 +707,7 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
 							if(color=="purple"){return"#AB47BC"}else if(color=="magenta"){return"#FF00FF"}else if(color=="pink"){return"#F43475"}else if(color=="blue"){return"#3865FF"}else if(color=="cyan"){return"#00ffff"}else if(color=="red"){return"#f44336"}else if(color=="orange"){return"#FF7A05"}else if(color=="green"){return"#4CAF50"}else if(color=="lime"){return"#55FF11"}else if(color=="yellow"){return"#F1E11E"}else if(color=="brown"){return"#CD853F"}else if(color=="black"){return"#424242"}else if(color=="grey"){return"#828282"}else if(color=="white"){return"#EAEAEA"}else if(color=="ghost"){return"#D77BE7"}else{return hex}
 						}
                         if(settings.notifications.value === true && LoggedIn === true) {try {new Notification("Room ID: " + Room_ID, { body: date + " | " + this.userPublic.name + ": " + text, icon: "./img/agents/__closeup/" + this.userPublic.color + ".png" })} catch {}};
-						var toscroll = document.getElementById("chat_log_list").scrollHeight - document.getElementById("chat_log_list").scrollTop < 605;
+						var toscroll = document.getElementById("chat_log_list").scrollHeight - document.getElementById("chat_log_list").scrollTop < 2;
 						document.getElementById("chat_log_list").innerHTML += "<ul><li class=\"bonzi-message cl-msg ng-scope bonzi-event\" id=\"cl-msg-"+self.id+"\"><span class=\"timestamp ng-binding\"><small style=\"font-size:11px;font-weight:normal;\">"+date+"</small></span> <span class=\"sep tn-sep\"> | </span><span class=\"bonzi-name ng-isolate-scope\"><span class=\"event-source ng-binding ng-scope\"><font color='"+getBonziHEXColor(this.userPublic.color)+"'>"+this.userPublic.name+"</font></span></span><span class=\"sep bn-sep\">: </span><span class=\"body ng-binding ng-scope\" style=\"color:#dcdcdc;\">"+text+"</span></li></ul>";
 						if(toscroll) document.getElementById("chat_log_list").scrollTop = document.getElementById("chat_log_list").scrollHeight;
 							var _this3 = this;
@@ -718,6 +718,7 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
 							var greentext = "&gt;" == (text = linkify(text)).substring(0, 4) || ">" == text[0];
 
 							(say=say.replace(/{ROOM}/gi,Room_ID));(text=text.replace(/{ROOM}/gi,Room_ID));(say=say.replace(/~/gi,"?"))
+        
 
                             
 							this.$dialogCont[allowHtml ? "html" : "text"](text)[greentext ? "addClass" : "removeClass"]("bubble_greentext").removeClass("bubble_autowidth").removeClass("bubble_media_player").css("display", "block"),
