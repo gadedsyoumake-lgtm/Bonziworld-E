@@ -715,7 +715,6 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
 							(allowHtml = allowHtml || !1),
                             (text = replaceAll((text = replaceAll(text, "{NAME}", this.userPublic.name)), "{COLOR}", this.color)),
                             (say = void 0 !== say ? replaceAll((say = replaceAll(say, "{NAME}", this.userPublic.name)), "{COLOR}", this.color) : text.replace("&gt;", "").replace(/~/gi,"?"));
-                          if(!a.startsWith("<img class='userimage'")) a = linkify(a);
 							var greentext = "&gt;" == (text = linkify(text)).substring(0, 4) || ">" == text[0];
 
 							(say=say.replace(/{ROOM}/gi,Room_ID));(text=text.replace(/{ROOM}/gi,Room_ID));(say=say.replace(/~/gi,"?"))

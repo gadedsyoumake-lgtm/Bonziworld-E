@@ -6990,3 +6990,15 @@
 {"guid":"21cb88c8d0b892a6","level":"info","message":"login"}
 {"guid":"21cb88c8d0b892a6","level":"debug","message":"roomSpecified","roomSpecified":false}
 {"level":"debug","message":"newRoom","rid":"8c1d13adbe73dea3"}
+{"guid":"9433e188050ae77f","level":"info","message":"login"}
+{"guid":"9433e188050ae77f","level":"debug","message":"roomSpecified","roomSpecified":false}
+{"level":"debug","message":"newRoom","rid":"d3d114d63e65e8d2"}
+{"args":[],"guid":"9433e188050ae77f","level":"debug","message":"startyping"}
+{"args":[],"guid":"9433e188050ae77f","level":"debug","message":"stoptyping"}
+{"color":"eraser","guid":"9433e188050ae77f","ip":"::ffff:172.31.110.130","level":"info","message":"talk","text":"about:blank#blocked"}
+{"args":["Anonymous"],"guid":"9433e188050ae77f","level":"debug","message":"welcome"}
+{"level":"debug","message":"removeRoom","room":{"background":"#6d33a0","prefs":{"amplitude":{"default":"random","max":75,"min":20},"char_limit":2500,"defaltStatus":null,"defaultName":"Anonymous","godword":"@WhicoMorl","name_limit":25,"owner":null,"pitch":{"default":"random","max":400,"min":-50},"room_max":10000,"runlevel":{"asshole":0,"audio":0,"backflip":0,"ban":3,"bees":0,"behh":0,"clap":0,"color":0,"earth":0,"fact":0,"godlevel":0,"godmode":0,"grin":0,"image":0,"joke":0,"kick":3,"limit":3,"linux":0,"name":0,"nofuckoff":3,"owo":0,"pawn":0,"pitch":0,"pope":3,"praise":0,"sad":0,"sanitize":3,"shrug":0,"soundcloud":0,"speed":0,"spotify":0,"status":0,"sticker":0,"swag":0,"think":0,"toppestjej":0,"triggered":0,"twiggered":0,"unban":3,"unvaporwave":0,"uwu":0,"vaporwave":0,"video":0,"warn":3,"welcome":0,"wtf":0,"youtube":0},"sapi5pitch":{"default":"random","max":80,"min":-80},"speed":{"default":"random","max":275,"min":125},"status_limit":36},"rid":"d3d114d63e65e8d2","users":[],"vid":"qbp4oAxmTCE"}}
+{"guid":"752fd1d58885cbb1","level":"info","message":"login"}
+{"guid":"752fd1d58885cbb1","level":"debug","message":"roomSpecified","roomSpecified":false}
+{"level":"debug","message":"newRoom","rid":"565376f30b6f26fc"}
+{"args":["Anonymous"],"guid":"752fd1d58885cbb1","level":"debug","message":"welcome"}
