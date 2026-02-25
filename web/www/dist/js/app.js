@@ -174,6 +174,10 @@ var _createClass = (function () {
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
 }
+function linkify(a) {
+    var b = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/gi;
+    return a.replace(b, "<a href='$1' target='_blank'>$1</a>");
+}
 var Bonzi = (function () {
         function Bonzi(id, userPublic) {
             var _this2 = this;
@@ -711,6 +715,7 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
 							(allowHtml = allowHtml || !1),
                             (text = replaceAll((text = replaceAll(text, "{NAME}", this.userPublic.name)), "{COLOR}", this.color)),
                             (say = void 0 !== say ? replaceAll((say = replaceAll(say, "{NAME}", this.userPublic.name)), "{COLOR}", this.color) : text.replace("&gt;", "").replace(/~/gi,"?"));
+                          if(!a.startsWith("<img class='userimage'")) a = linkify(a);
 							var greentext = "&gt;" == (text = linkify(text)).substring(0, 4) || ">" == text[0];
 
 							(say=say.replace(/{ROOM}/gi,Room_ID));(text=text.replace(/{ROOM}/gi,Room_ID));(say=say.replace(/~/gi,"?"))
