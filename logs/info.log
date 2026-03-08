@@ -7094,3 +7094,6 @@
 {"color":"officelogo","guid":"29efccd3c5956aaf","ip":"::ffff:172.31.110.130","level":"info","message":"talk","text":"e"}
 {"args":[],"guid":"29efccd3c5956aaf","level":"debug","message":"startyping"}
 {"args":[],"guid":"29efccd3c5956aaf","level":"debug","message":"stoptyping"}
+{"guid":"09dd1694dccab0bf","level":"info","message":"login"}
+{"guid":"09dd1694dccab0bf","level":"debug","message":"roomSpecified","roomSpecified":false}
+{"level":"debug","message":"newRoom","rid":"5c1ba8a90e8f210e"}
