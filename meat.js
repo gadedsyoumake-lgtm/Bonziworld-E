@@ -2039,6 +2039,12 @@ let userCommands = {
             target: sanitize(Utils.argsString(arguments)),
         });
     },
+  "heyname": function() {
+      this.room.emit("heyname", {
+          guid: this.guid,
+          target: sanitize(Utils.argsString(arguments)),
+      });
+  },
     "baduser": function() {
         this.room.emit("baduser", {
             guid: this.guid,

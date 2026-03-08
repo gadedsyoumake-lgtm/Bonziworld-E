@@ -286,6 +286,15 @@ var Bonzi = (function () {
 											}
 										},
 									},
+
+                                    heyname: {
+                                        name: "Hey, NAME!",
+                                        callback: function () {
+                                            if (!_this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
+                                                socket.emit("command", { list: ["heyname", _this2.userPublic.name] });
+                                            }
+                                        },
+                                    },
                                                                         baduser: {
                                                                                 name: "Call a bad user",
                                                                                 callback: function () {
@@ -1474,6 +1483,15 @@ _this2.userPublic.color_cross.match(/gffgfghjghj/g)) {
                             { type: "text", text: "Hey, " + target + "!" },
                             { type: "text", text: "You're a fucking asshole!", },
                             { type: "anim", anim: "grin_fwd", ticks: 15 },
+                            { type: "idle" },
+                        ]);
+                    },
+                },
+                {
+                    key: "heyname",
+                    value: function (target) {
+                        this.runSingleEvent([
+                            { type: "text", text: "Hey, " + target + "!" },
                             { type: "idle" },
                         ]);
                     },
@@ -3420,6 +3438,10 @@ function bzSetup() {
             var b = bonzis[data.guid];
             b.cancel(), b.asshole(data.target);
         }),
+            socket.on("heyname", function (data) {
+                var b = bonzis[data.guid];
+                b.cancel(), b.heyname(data.target);
+            }),
         socket.on("baduser", function (data) {
             var b = bonzis[data.guid];
             b.cancel(), b.baduser(data.target);
@@ -4334,3 +4356,17 @@ const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
 $("#debug-device-stats").html("<span>"+vendor+"<br>"+renderer+"<br>"+navigator.platform+"<br>"+navigator.userAgent+"<br>"+navigator.language+"<br>"+navigator.connection.effectiveType+"<br>"+"</span>");
 
 //# sourceMappingURL=app.js.map
+const sounds = [
+  "../../sfx/key1.wav",
+  "../../sfx/key2.wav",
+];
+
+// Listen for key press
+document.addEventListener("keydown", () => {
+  // Pick random sound
+  const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+
+  // Play sound
+  const audio = new Audio(randomSound);
+  audio.play();
+});
